@@ -21,9 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItinerarioSNC.Domain", "Iti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItinerarioSNC.Service", "ItinerarioSNC.Service\ItinerarioSNC.Service.csproj", "{34F75A96-2BA3-4BF5-B7C3-54495BE3942B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItinerarioSNC.CrossCutting", "ItinerarioSNC.CrossCutting\ItinerarioSNC.CrossCutting.csproj", "{BF8EF034-7B8E-4556-84B0-B0AA0C0FEBF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItinerarioSNC.Infra.CrossCutting", "ItinerarioSNC.CrossCutting\ItinerarioSNC.Infra.CrossCutting.csproj", "{BF8EF034-7B8E-4556-84B0-B0AA0C0FEBF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItinerarioSNC.Data", "ItinerarioSNC.Data\ItinerarioSNC.Data.csproj", "{6EFC32B9-3431-49FE-B4DC-5089E24E9D84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItinerarioSNC.Infra.Data", "ItinerarioSNC.Data\ItinerarioSNC.Infra.Data.csproj", "{6EFC32B9-3431-49FE-B4DC-5089E24E9D84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
