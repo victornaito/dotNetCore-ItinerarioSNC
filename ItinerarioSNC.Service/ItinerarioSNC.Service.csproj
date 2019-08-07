@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Validators\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\ItinerarioSNC.Data\ItinerarioSNC.Infra.Data.csproj" />
+    <ProjectReference Include="..\ItinerarioSNC.Domain\ItinerarioSNC.Domain.csproj" />
   </ItemGroup>
 
 </Project>
