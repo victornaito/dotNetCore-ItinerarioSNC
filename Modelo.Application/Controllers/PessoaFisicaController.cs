@@ -7,15 +7,21 @@ using System.Threading.Tasks;
 
 [Produces("application/json")]
 [Route("api/[controller]")]
-public class PessoaFisicaController : Controller
+[ApiController]
+public class PessoaFisicaController : ControllerBase
 {
-    private BaseService<PessoaFisica> service = new BaseService<PessoaFisica>();
+    private readonly BaseService<PessoaFisica> pessoaFisicaService;
+
+    public PessoaFisicaController(BaseService<PessoaFisica> pessoaFisicaService)
+    {
+        this.pessoaFisicaService = pessoaFisicaService;
+    }
 
     public IActionResult Post([FromBody] PessoaFisica item)
     {
         try
         {
-            service.Post<PessoaFisicaValidator>(item);
+            pessoaFisicaService.Post<PessoaFisicaValidator>(item);
 
             return new ObjectResult(item.Id);
         }
@@ -33,7 +39,7 @@ public class PessoaFisicaController : Controller
     {
         try
         {
-            await service.Put<PessoaFisicaValidator>(item);
+            await pessoaFisicaService.Put<PessoaFisicaValidator>(item);
 
             return new ObjectResult(item);
         }
@@ -51,7 +57,7 @@ public class PessoaFisicaController : Controller
     {
         try
         {
-            service.Delete(id);
+            pessoaFisicaService.Delete(id);
 
             return new NoContentResult();
         }
@@ -69,7 +75,7 @@ public class PessoaFisicaController : Controller
     {
         try
         {
-            return new ObjectResult(service.GetAll());
+            return new ObjectResult(pessoaFisicaService.GetAll());
         }
         catch (Exception ex)
         {
@@ -81,7 +87,7 @@ public class PessoaFisicaController : Controller
     {
         try
         {
-            return new ObjectResult(service.Get(id));
+            return new ObjectResult(pessoaFisicaService.Get(id));
         }
         catch (ArgumentException ex)
         {
