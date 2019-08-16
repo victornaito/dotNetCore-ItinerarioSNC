@@ -17,6 +17,7 @@ public class PessoaFisicaController : ControllerBase
         this.pessoaFisicaService = pessoaFisicaService;
     }
 
+    [HttpPost]
     public IActionResult Post([FromBody] PessoaFisica item)
     {
         try
@@ -35,6 +36,7 @@ public class PessoaFisicaController : ControllerBase
         }
     }
 
+    [HttpPut]
     public async Task<IActionResult> PutAsync([FromBody] PessoaFisica item)
     {
         try
@@ -53,6 +55,7 @@ public class PessoaFisicaController : ControllerBase
         }
     }
 
+    [HttpDelete]
     public IActionResult Delete(int id)
     {
         try
@@ -71,6 +74,7 @@ public class PessoaFisicaController : ControllerBase
         }
     }
 
+    [HttpGet]
     public IActionResult Get()
     {
         try
@@ -83,6 +87,7 @@ public class PessoaFisicaController : ControllerBase
         }
     }
 
+    [HttpGet("GetPersonById/{id}")]
     public IActionResult Get(int id)
     {
         try

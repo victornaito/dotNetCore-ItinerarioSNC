@@ -20,11 +20,10 @@ namespace ItinerarioSNC.Application.Controllers
             this.analiseAgendamentoService = analiseAgendamentoService;
         }
 
-        public IActionResult Post([FromBody] AnaliseAgendamentoDto item)
+        public IActionResult Post([FromBody] AnaliseAgendamento item)
         {
             try
             {
-                //item.MapTo<>();
                 analiseAgendamentoService.Post<AnaliseAgendamentoValidator>(item);
 
                 return new ObjectResult(item.Id);

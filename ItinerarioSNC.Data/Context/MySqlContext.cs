@@ -17,7 +17,7 @@ namespace ItinerarioSNC.Infra.Data.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer("Server=localhost;Port=8080;Database=modelo;Uid=[USUARIO];Pwd=[SENHA]");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=modelo;Uid=[SENACMS\victor.naito];Pwd=[18071993]");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
