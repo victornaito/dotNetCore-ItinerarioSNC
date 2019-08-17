@@ -1,0 +1,18 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/jincod/dotnetcore-buildpack.git"
+    }
+  ],
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "dotNetCore-ItinerarioSNC",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
