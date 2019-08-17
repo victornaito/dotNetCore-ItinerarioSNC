@@ -14,7 +14,7 @@ namespace ItinerarioSNC.Domain.Entities
         public AnaliseAgendamento(DateTime dataCriacaoAgendamento, PessoaFisica pessoaFisica)
         {
             DataCriacaoAgendamento = dataCriacaoAgendamento;
-            PessoaFisica = pessoaFisica;
+            PessoaFisica = pessoaFisica ;
         }
 
         public DateTime DataCriacaoAgendamento { get; private set; }
