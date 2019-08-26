@@ -11,14 +11,10 @@ namespace ItinerarioSNC.Infra.Data.Context
     public class MySqlServerContext : DbContext
     {
         //DbSet<PessoaFisica> PessoaFisica { get; set; }
-        //public MySqlContext(DbContextOptions options) : base(options)
-        //{
-        //}
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public MySqlServerContext(DbContextOptions options) : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer("Server=localhost;Database=modelo;Uid=[SENACMS\victor.naito];Pwd=[18071993]");
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

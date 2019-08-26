@@ -10,7 +10,18 @@ namespace ItinerarioSNC.Infra.Data.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
-        MySqlServerContext sqlServerContext = new MySqlServerContext();
+
+        private readonly MySqlServerContext sqlServerContext;
+
+        public BaseRepository()
+        {
+        }
+
+        public BaseRepository(MySqlServerContext sqlServerContext)
+        {
+            this.sqlServerContext = sqlServerContext;
+        }
+
         public async Task<T> GetAsync(int id)
         {
             return await sqlServerContext.Set<T>().FindAsync(id);

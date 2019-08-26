@@ -10,7 +10,12 @@ namespace ItinerarioSNC.Service.Services
 {
     public class BaseService<T> : IService<T> where T : BaseEntity
     {
-        private BaseRepository<T> repository = new BaseRepository<T>();
+        private readonly BaseRepository<T> repository;
+
+        public BaseService(BaseRepository<T> repository)
+        {
+            this.repository = repository;
+        }
 
         public T Post<V>(T obj) where V : AbstractValidator<T>
         {
