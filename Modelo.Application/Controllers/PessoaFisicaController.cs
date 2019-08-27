@@ -100,7 +100,7 @@ public class PessoaFisicaController : ControllerBase
         }
         catch (Exception ex)
         {
-            return BadRequest(ex);
+            return BadRequest(ex) ;
         }
     }
 
