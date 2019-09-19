@@ -100,13 +100,13 @@ public class PessoaFisicaController : ControllerBase
         }
         catch (Exception ex)
         {
-            return BadRequest(ex) ;
+            return BadRequest(ex);
         }
     }
 
     [HttpGet("ping")]
-    public DateTime Ping()
+    public string Ping()
     {
-        return DateTime.Now;
+        return  "A data eh:" + DateTime.Now.ToString();
     }
 }
