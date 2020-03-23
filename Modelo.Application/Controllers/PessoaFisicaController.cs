@@ -1,6 +1,7 @@
 ﻿using ItinerarioSNC.Domain.Entities;
 using ItinerarioSNC.Service.Services;
 using ItinerarioSNC.Service.Validators;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -74,7 +75,13 @@ public class PessoaFisicaController : ControllerBase
         }
     }
 
+    [AllowAnonymous]
+    [HttpGet("Token")]
+    public IActionResult GetToken() => Ok(pessoaFisicaService.tokenJWTService.GerarToken());
+
+    [Authorize]
     [HttpGet]
+
     public IActionResult Get()
     {
         try

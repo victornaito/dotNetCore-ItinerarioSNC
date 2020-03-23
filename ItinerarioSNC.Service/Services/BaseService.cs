@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using ItinerarioSNC.Domain.Entities;
 using ItinerarioSNC.Domain.Interfaces;
+using ItinerarioSNC.Infra.CrossCutting.Interfaces;
 using ItinerarioSNC.Infra.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,13 @@ namespace ItinerarioSNC.Service.Services
     public class BaseService<T> : IService<T> where T : BaseEntity
     {
         private readonly BaseRepository<T> repository;
+        public readonly ITokenJWTService tokenJWTService;
 
-        public BaseService(BaseRepository<T> repository)
+        public BaseService(BaseRepository<T> repository,
+                            ITokenJWTService tokenJWTService)
         {
             this.repository = repository;
+            this.tokenJWTService = tokenJWTService;
         }
 
         public T Post<V>(T obj) where V : AbstractValidator<T>

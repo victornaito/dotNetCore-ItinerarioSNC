@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ItinerarioSNC.CrossCutting\ItinerarioSNC.Infra.CrossCutting.csproj" />
     <ProjectReference Include="..\ItinerarioSNC.Data\ItinerarioSNC.Infra.Data.csproj" />
     <ProjectReference Include="..\ItinerarioSNC.Domain\ItinerarioSNC.Domain.csproj" />
   </ItemGroup>
