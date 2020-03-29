@@ -20,7 +20,7 @@ namespace ItinerarioSNC.Service.Services
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(configuration.GetSection("JWTToken:Secret").Value);
             var SimetricKey = new SymmetricSecurityKey(key);
-            var token = new JwtSecurityToken(null, null, null, DateTime.Now, DateTime.Now.AddSeconds(1), 
+            var token = new JwtSecurityToken(null, null, null, DateTime.Now, DateTime.Now.AddMinutes(30), 
                     new SigningCredentials(SimetricKey, SecurityAlgorithms.HmacSha256));
 
             

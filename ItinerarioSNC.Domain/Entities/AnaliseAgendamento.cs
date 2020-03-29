@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace ItinerarioSNC.Domain.Entities
 {
@@ -14,7 +11,6 @@ namespace ItinerarioSNC.Domain.Entities
         public AnaliseAgendamento(DateTime dataCriacaoAgendamento)
         {
             DataCriacaoAgendamento = dataCriacaoAgendamento;
-            PessoaFisica = pessoaFisica;
         }
 
         public DateTime DataCriacaoAgendamento { get; private set; }

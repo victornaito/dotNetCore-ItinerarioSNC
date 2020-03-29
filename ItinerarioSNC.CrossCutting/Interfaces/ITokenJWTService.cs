@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ItinerarioSNC.Infra.CrossCutting.Interfaces
+﻿namespace ItinerarioSNC.Infra.CrossCutting.Interfaces
 {
     public interface ITokenJWTService
     {

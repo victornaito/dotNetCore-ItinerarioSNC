@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ItinerarioSNC.Domain.Entities
 {
     public class PessoaFisica : BaseEntity
     {
-        public int? CPF { get; set; }
-        public string SocialName { get; set; }
-        public string FullName { get; set; }
-        public DateTime? Birthday { get; set; }
-        public string Department { get; set; }
+        public int? CPF { get; private set; }
+        public string SocialName { get; private set; }
+        public string FullName { get; private set; }
+        public DateTime? Birthday { get; private set; }
+        public string Department { get; private set; }
     }
 }

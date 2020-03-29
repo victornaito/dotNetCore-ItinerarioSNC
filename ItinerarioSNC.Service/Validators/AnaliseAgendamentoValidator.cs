@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
 using ItinerarioSNC.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ItinerarioSNC.Service.Validators
 {

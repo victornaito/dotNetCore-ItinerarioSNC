@@ -1,4 +1,5 @@
-﻿using ItinerarioSNC.Domain.Entities;
+﻿using AutoMapper;
+using ItinerarioSNC.Domain.Entities;
 using ItinerarioSNC.Infra.CrossCutting.Interfaces;
 using ItinerarioSNC.Infra.Data.Context;
 using ItinerarioSNC.Infra.Data.Repository;
@@ -34,7 +35,8 @@ namespace Modelo.Application
             services.AddScoped<BaseService<AnaliseAgendamento>>();
             services.AddScoped<MySqlServerContext>();
             services.AddScoped<BaseRepository<PessoaFisica>>();
-            services.AddSingleton<ITokenJWTService, TokenService>();
+            services.AddScoped<IMapper, Mapper>();
+            services.AddScoped<ITokenJWTService, TokenService>();
 
             // Sql Server Connection
             services.AddDbContext<MySqlServerContext>(options =>

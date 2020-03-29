@@ -1,4 +1,6 @@
-﻿using ItinerarioSNC.Domain.Entities;
+﻿using ItinerarioSNC.Domain.Dtos;
+using ItinerarioSNC.Domain.Entities;
+using ItinerarioSNC.Infra.Data.AutoMapper;
 using ItinerarioSNC.Service.Services;
 using ItinerarioSNC.Service.Validators;
 using Microsoft.AspNetCore.Authorization;
@@ -19,13 +21,14 @@ public class PessoaFisicaController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody] PessoaFisica item)
+    public IActionResult Post([FromBody] PessoaFisicaDto item)
     {
         try
         {
-            pessoaFisicaService.Post<PessoaFisicaValidator>(item);
+            PessoaFisica pessoaFisica = AutoMapperProfile.Map<PessoaFisicaDto, PessoaFisica>(item);
+            PessoaFisica retorno = pessoaFisicaService.Post<PessoaFisicaValidator>(pessoaFisica);
 
-            return new ObjectResult(item.Id);
+            return new ObjectResult(retorno.Id);
         }
         catch (ArgumentNullException ex)
         {
@@ -38,11 +41,12 @@ public class PessoaFisicaController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> PutAsync([FromBody] PessoaFisica item)
+    public async Task<IActionResult> PutAsync([FromBody] PessoaFisicaDto item)
     {
         try
         {
-            await pessoaFisicaService.Put<PessoaFisicaValidator>(item);
+            PessoaFisica pessoaFisica = AutoMapperProfile.Map<PessoaFisicaDto, PessoaFisica>(item);
+            await pessoaFisicaService.Put<PessoaFisicaValidator>(pessoaFisica);
 
             return new ObjectResult(item);
         }
