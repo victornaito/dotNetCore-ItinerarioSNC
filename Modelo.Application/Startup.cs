@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ItinerarioSNC.Domain.Entities;
+using ItinerarioSNC.Domain.Interfaces;
 using ItinerarioSNC.Infra.CrossCutting.Interfaces;
 using ItinerarioSNC.Infra.Data.Context;
 using ItinerarioSNC.Infra.Data.Repository;
@@ -7,6 +8,7 @@ using ItinerarioSNC.Service.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -31,12 +33,14 @@ namespace Modelo.Application
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddScoped<BaseService<PessoaFisica>>();
-            services.AddScoped<BaseService<AnaliseAgendamento>>();
+            services.AddScoped(typeof(IService<>), typeof(BaseService<>));
             services.AddScoped<MySqlServerContext>();
-            services.AddScoped<BaseRepository<PessoaFisica>>();
+            services.AddScoped(typeof(BaseRepository<>), typeof(IRepository<>));
             services.AddScoped<IMapper, Mapper>();
             services.AddScoped<ITokenJWTService, TokenService>();
+
+            // ASP.NET IDENTITY
+            services.AddDefaultIdentity<IdentityUser>();
 
             // Sql Server Connection
             services.AddDbContext<MySqlServerContext>(options =>
@@ -90,7 +94,6 @@ namespace Modelo.Application
                 app.UseHttpsRedirection();
                 app.UseCors("CorsPolicy");
                 app.UseMvc();
-                //app.UseMiddleware(null);
             }
         }
     }

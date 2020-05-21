@@ -23,7 +23,6 @@ namespace ItinerarioSNC.Service.Services
             var token = new JwtSecurityToken(null, null, null, DateTime.Now, DateTime.Now.AddMinutes(30), 
                     new SigningCredentials(SimetricKey, SecurityAlgorithms.HmacSha256));
 
-            
             return tokenHandler.WriteToken(token);
         }
     }
