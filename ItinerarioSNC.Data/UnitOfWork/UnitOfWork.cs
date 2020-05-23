@@ -18,7 +18,7 @@ namespace ItinerarioSNC.Data.UnitOfWork
             await context.SaveChangesAsync();
         }
 
-        public void Roolback()
+        public void Rollback()
         {
             context.Dispose();
         }

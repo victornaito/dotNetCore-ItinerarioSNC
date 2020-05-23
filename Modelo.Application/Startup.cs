@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using ItinerarioSNC.Data.UnitOfWork;
+using ItinerarioSNC.Data.UnitOfWork.Interface;
 using ItinerarioSNC.Domain.Entities;
 using ItinerarioSNC.Domain.Interfaces;
 using ItinerarioSNC.Infra.CrossCutting.Interfaces;
@@ -35,12 +37,10 @@ namespace Modelo.Application
 
             services.AddScoped(typeof(IService<>), typeof(BaseService<>));
             services.AddScoped<MySqlServerContext>();
-            services.AddScoped(typeof(BaseRepository<>), typeof(IRepository<>));
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IMapper, Mapper>();
             services.AddScoped<ITokenJWTService, TokenService>();
-
-            // ASP.NET IDENTITY
-            services.AddDefaultIdentity<IdentityUser>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // Sql Server Connection
             services.AddDbContext<MySqlServerContext>(options =>

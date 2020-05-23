@@ -7,7 +7,7 @@ namespace ItinerarioSNC.Data.UnitOfWork.Interface
 {
     public interface IUnitOfWork
     {
-        void Roolback();   
+        void Rollback();   
         Task CommitAsync();   
     }
 }
