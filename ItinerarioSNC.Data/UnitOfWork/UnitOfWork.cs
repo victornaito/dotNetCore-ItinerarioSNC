@@ -1,14 +1,14 @@
-using System.Threading.Tasks;
 using ItinerarioSNC.Data.UnitOfWork.Interface;
-using Microsoft.EntityFrameworkCore;
+using ItinerarioSNC.Infra.Data.Context;
+using System.Threading.Tasks;
 
 namespace ItinerarioSNC.Data.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DbContext context;
+        private readonly MySqlServerContext context;
 
-        public UnitOfWork(DbContext context)
+        public UnitOfWork(MySqlServerContext context)
         {
             this.context = context;
         }

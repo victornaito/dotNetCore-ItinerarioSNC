@@ -1,12 +1,9 @@
-﻿using ItinerarioSNC.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ItinerarioSNC.Domain.Interfaces
 {
-    public interface IRepository<T> where T: BaseEntity {
+    public interface IRepository<T> where T: class {
         void Insert(T obj);
         void Remove(int id);
         Task<T> GetAsync(int id);

@@ -1,5 +1,8 @@
-﻿using ItinerarioSNC.Domain.Dtos;
+﻿using ItinerarioSNC.Data.UnitOfWork.Interface;
+using ItinerarioSNC.Domain.Dtos;
 using ItinerarioSNC.Domain.Entities;
+using ItinerarioSNC.Domain.Interfaces;
+using ItinerarioSNC.Infra.CrossCutting.Interfaces;
 using ItinerarioSNC.Infra.Data.AutoMapper;
 using ItinerarioSNC.Service.Services;
 using ItinerarioSNC.Service.Validators;
@@ -13,10 +16,14 @@ using System.Threading.Tasks;
 [ApiController]
 public class PessoaFisicaController : ControllerBase
 {
-    private readonly BaseService<PessoaFisica> pessoaFisicaService;
+    private readonly IUnitOfWork unitOfWork;
+    private readonly ITokenJWTService tokenJWTService;
+    private readonly IService<PessoaFisica> pessoaFisicaService;
 
-    public PessoaFisicaController(BaseService<PessoaFisica> pessoaFisicaService)
+    public PessoaFisicaController(IUnitOfWork unitOfWork, IService<PessoaFisica> pessoaFisicaService, ITokenJWTService tokenJWTService)
     {
+        this.unitOfWork = unitOfWork;
+        this.tokenJWTService = tokenJWTService;
         this.pessoaFisicaService = pessoaFisicaService;
     }
 
@@ -81,7 +88,7 @@ public class PessoaFisicaController : ControllerBase
 
     [AllowAnonymous]
     [HttpGet("Token")]
-    public IActionResult GetToken() => Ok(pessoaFisicaService.tokenJWTService.GerarToken());
+    public IActionResult GetToken() => Ok(this.tokenJWTService.GerarToken());
 
     [Authorize]
     [HttpGet]

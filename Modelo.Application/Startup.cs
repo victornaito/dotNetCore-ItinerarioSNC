@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using ItinerarioSNC.Data.UnitOfWork;
 using ItinerarioSNC.Data.UnitOfWork.Interface;
-using ItinerarioSNC.Domain.Entities;
 using ItinerarioSNC.Domain.Interfaces;
 using ItinerarioSNC.Infra.CrossCutting.Interfaces;
 using ItinerarioSNC.Infra.Data.Context;
@@ -10,7 +9,6 @@ using ItinerarioSNC.Service.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -35,11 +33,11 @@ namespace Modelo.Application
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddScoped(typeof(IService<>), typeof(BaseService<>));
-            services.AddScoped<MySqlServerContext>();
+            services.AddScoped(typeof(IService<>), typeof(BaseService<>));            
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
-            services.AddScoped<IMapper, Mapper>();
             services.AddScoped<ITokenJWTService, TokenService>();
+            services.AddScoped<MySqlServerContext>(); 
+            services.AddScoped<IMapper, Mapper>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // Sql Server Connection

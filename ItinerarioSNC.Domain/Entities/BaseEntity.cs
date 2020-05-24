@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ItinerarioSNC.Domain.Entities
+﻿namespace ItinerarioSNC.Domain.Entities
 {
     public class BaseEntity
     {
-        public virtual long Id { get; set; }
+        public long Id { get; set; }
     }
 }
