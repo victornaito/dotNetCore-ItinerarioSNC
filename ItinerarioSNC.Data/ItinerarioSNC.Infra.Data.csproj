@@ -18,19 +18,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.4" />
+    <PackageReference Include="Sample.AppItnerarioSNC.Generics.ApplicationCore" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ItinerarioSNC.Domain\ItinerarioSNC.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="ItnerarioSNC.Generics.ApplicationCore">
-      <HintPath>..\..\ItnerarioSNC.Generics\bin\Release\netcoreapp3.1\ItnerarioSNC.Generics.ApplicationCore.dll</HintPath>
-    </Reference>
-    <Reference Include="ItnerarioSNC.Generics.Infra">
-      <HintPath>..\..\ItnerarioSNC.Generics\bin\Release\netcoreapp3.1\ItnerarioSNC.Generics.Infra.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
