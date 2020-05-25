@@ -10,12 +10,18 @@
   </PropertyGroup>
   
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="8.4.0" />
-    <PackageReference Include="FluentValidation.AspNetCore" Version="8.4.0" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ItnerarioSNC.Generics.ApplicationCore">
+      <HintPath>..\..\ItnerarioSNC.Generics\bin\Release\netcoreapp3.1\ItnerarioSNC.Generics.ApplicationCore.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

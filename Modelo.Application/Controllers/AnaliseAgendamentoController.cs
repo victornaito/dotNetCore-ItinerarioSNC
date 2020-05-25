@@ -1,21 +1,18 @@
-﻿using ItinerarioSNC.Domain.Dtos;
-using ItinerarioSNC.Domain.Entities;
-using ItinerarioSNC.Service.Services;
+﻿using ItinerarioSNC.Domain.Entities;
 using ItinerarioSNC.Service.Validators;
+using ItnerarioSNC.Generics;
+using ItnerarioSNC.Generics.ApplicationCore.Base.Interfaces.Services;
+using ItnerarioSNC.Generics.Infra.Base.TokenJWT;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using AutoMapper;
 
 namespace ItinerarioSNC.Application.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AnaliseAgendamentoController : ControllerBase
+    public class AnaliseAgendamentoController : BaseController
     {
-        private readonly BaseService<AnaliseAgendamento> analiseAgendamentoService;
+        private readonly IBaseService<AnaliseAgendamento> analiseAgendamentoService;
 
-        public AnaliseAgendamentoController(BaseService<AnaliseAgendamento> analiseAgendamentoService)
+        public AnaliseAgendamentoController(ITokenJWTService tokenJWTService, IBaseService<AnaliseAgendamento> analiseAgendamentoService) : base(tokenJWTService)
         {
             this.analiseAgendamentoService = analiseAgendamentoService;
         }

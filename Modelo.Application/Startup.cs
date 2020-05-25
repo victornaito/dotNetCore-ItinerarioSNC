@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using ItinerarioSNC.Data.UnitOfWork;
-using ItinerarioSNC.Data.UnitOfWork.Interface;
-using ItinerarioSNC.Domain.Interfaces;
-using ItinerarioSNC.Infra.CrossCutting.Interfaces;
 using ItinerarioSNC.Infra.Data.Context;
 using ItinerarioSNC.Infra.Data.Repository;
-using ItinerarioSNC.Service.Services;
+using ItnerarioSNC.Generics.ApplicationCore.Base.Interfaces.Repositories;
+using ItnerarioSNC.Generics.ApplicationCore.Base.Interfaces.Services;
+using ItnerarioSNC.Generics.Infra.Base.TokenJWT;
+using ItnerarioSNC.Generics.Infra.Base.UnitOfWork;
+using ItnerarioSNC.Generics.Infra.Base.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,11 +32,10 @@ namespace Modelo.Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddScoped(typeof(IService<>), typeof(BaseService<>));            
-            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));            
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ITokenJWTService, TokenService>();
-            services.AddScoped<MySqlServerContext>(); 
+            services.AddScoped<MySqlServerContext>();
             services.AddScoped<IMapper, Mapper>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -72,8 +71,11 @@ namespace Modelo.Application
             
             IdentityModelEventSource.ShowPII = true;
 
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().AddMvcOptions(s => s.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

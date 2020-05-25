@@ -11,8 +11,6 @@ namespace ItinerarioSNC.Infra.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<PessoaFisica> builder)
         {
-            builder.ToTable("PessoaFisica", "usuario");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Birthday)
@@ -23,6 +21,8 @@ namespace ItinerarioSNC.Infra.Data.Mapping
 
             builder.Property(x => x.Department)
                 .IsRequired();
+
+            builder.ToTable("PessoaFisica", "usuario");
         }
     }
 }

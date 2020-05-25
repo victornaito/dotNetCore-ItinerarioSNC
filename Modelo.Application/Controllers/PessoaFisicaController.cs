@@ -1,28 +1,25 @@
-﻿using ItinerarioSNC.Data.UnitOfWork.Interface;
-using ItinerarioSNC.Domain.Dtos;
+﻿using ItinerarioSNC.Domain.Dtos;
 using ItinerarioSNC.Domain.Entities;
-using ItinerarioSNC.Domain.Interfaces;
-using ItinerarioSNC.Infra.CrossCutting.Interfaces;
 using ItinerarioSNC.Infra.Data.AutoMapper;
-using ItinerarioSNC.Service.Services;
 using ItinerarioSNC.Service.Validators;
+using ItnerarioSNC.Generics;
+using ItnerarioSNC.Generics.ApplicationCore.Base.Interfaces.Services;
+using ItnerarioSNC.Generics.Infra.Base.TokenJWT;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
-[Produces("application/json")]
-[Route("api/[controller]")]
-[ApiController]
-public class PessoaFisicaController : ControllerBase
-{
-    private readonly IUnitOfWork unitOfWork;
-    private readonly ITokenJWTService tokenJWTService;
-    private readonly IService<PessoaFisica> pessoaFisicaService;
 
-    public PessoaFisicaController(IUnitOfWork unitOfWork, IService<PessoaFisica> pessoaFisicaService, ITokenJWTService tokenJWTService)
+public class PessoaFisicaController : BaseController
+{
+    private readonly ITokenJWTService tokenJWTService;
+    private readonly IBaseService<PessoaFisica> pessoaFisicaService;
+
+    public PessoaFisicaController(ITokenJWTService tokenJWTService
+        , IBaseService<PessoaFisica> pessoaFisicaService
+        ) : base(tokenJWTService)
     {
-        this.unitOfWork = unitOfWork;
         this.tokenJWTService = tokenJWTService;
         this.pessoaFisicaService = pessoaFisicaService;
     }

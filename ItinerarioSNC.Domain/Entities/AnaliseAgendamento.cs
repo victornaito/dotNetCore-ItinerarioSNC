@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItnerarioSNC.Generics.ApplicationCore.Base.Entities;
+using System;
 
 namespace ItinerarioSNC.Domain.Entities
 {

@@ -1,6 +1,6 @@
-﻿using ItinerarioSNC.Domain.Entities;
-using ItinerarioSNC.Domain.Interfaces;
-using ItinerarioSNC.Infra.Data.Context;
+﻿using ItinerarioSNC.Infra.Data.Context;
+using ItnerarioSNC.Generics.ApplicationCore.Base.Entities;
+using ItnerarioSNC.Generics.ApplicationCore.Base.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +8,10 @@ using System.Threading.Tasks;
 
 namespace ItinerarioSNC.Infra.Data.Repository
 {
-    public class BaseRepository<T> : IRepository<T> where T : BaseEntity
+    public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
 
         private readonly MySqlServerContext sqlServerContext;
-
-        public BaseRepository()
-        {
-        }
 
         public BaseRepository(MySqlServerContext sqlServerContext)
         {

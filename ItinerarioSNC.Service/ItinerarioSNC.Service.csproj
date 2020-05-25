@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.5.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
   </ItemGroup>
 
@@ -12,6 +13,19 @@
     <ProjectReference Include="..\ItinerarioSNC.CrossCutting\ItinerarioSNC.Infra.CrossCutting.csproj" />
     <ProjectReference Include="..\ItinerarioSNC.Data\ItinerarioSNC.Infra.Data.csproj" />
     <ProjectReference Include="..\ItinerarioSNC.Domain\ItinerarioSNC.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ItnerarioSNC.Generics.ApplicationCore">
+      <HintPath>..\..\ItnerarioSNC.Generics\bin\Release\netcoreapp3.1\ItnerarioSNC.Generics.ApplicationCore.dll</HintPath>
+    </Reference>
+    <Reference Include="ItnerarioSNC.Generics.Infra">
+      <HintPath>..\..\ItnerarioSNC.Generics\bin\Release\netcoreapp3.1\ItnerarioSNC.Generics.Infra.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
