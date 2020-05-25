@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="Sample.AppItnerarioSNC.Generics.ApplicationCore" Version="1.0.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.6.0" />
     <PackageReference Include="System.Runtime" Version="4.2.2.0" />
   </ItemGroup>
@@ -23,15 +24,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ItinerarioSNC.Data\ItinerarioSNC.Infra.Data.csproj" />
     <ProjectReference Include="..\ItinerarioSNC.Service\ItinerarioSNC.Service.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="ItnerarioSNC.Generics.ApplicationCore">
-      <HintPath>..\..\ItnerarioSNC.Generics\bin\Release\netcoreapp3.1\ItnerarioSNC.Generics.ApplicationCore.dll</HintPath>
-    </Reference>
-    <Reference Include="ItnerarioSNC.Generics.Infra">
-      <HintPath>..\..\ItnerarioSNC.Generics\bin\Release\netcoreapp3.1\ItnerarioSNC.Generics.Infra.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <PropertyGroup>
