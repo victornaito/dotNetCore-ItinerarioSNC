@@ -18,10 +18,4 @@
     <Folder Include="Interfaces\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="ItnerarioSNC.Generics.ApplicationCore">
-      <HintPath>..\..\ItnerarioSNC.Generics\bin\Release\netcoreapp3.1\ItnerarioSNC.Generics.ApplicationCore.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
