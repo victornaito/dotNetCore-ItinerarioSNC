@@ -20,7 +20,7 @@ namespace ItinerarioSNC.Service.Validators
                 .NotNull().WithMessage("Is necessary to inform the CPF.");
 
             RuleFor(c => c.DataCriacaoAgendamento)
-                .NotEmpty().WithMessage("Cannot be Empty.")
+                .NotEmpty().WithMessage("Cannot be Empty")
                 .NotNull().WithMessage("Is necessary to inform the birth date.");
         }
     }
