@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using ItinerarioSNC.Domain.Dtos;
-using ItinerarioSNC.Domain.Dtos.Base;
 using ItinerarioSNC.Domain.Entities;
 
 namespace ItinerarioSNC.Infra.Data.AutoMapper
