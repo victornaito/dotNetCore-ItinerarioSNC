@@ -13,14 +13,12 @@ using System.Threading.Tasks;
 
 public class PessoaFisicaController : BaseController
 {
-    private readonly ITokenJWTService tokenJWTService;
     private readonly IBaseService<PessoaFisica> pessoaFisicaService;
 
-    public PessoaFisicaController(ITokenJWTService tokenJWTService
-        , IBaseService<PessoaFisica> pessoaFisicaService
-        ) : base(tokenJWTService)
+    public PessoaFisicaController(ITokenJWTService tokenJWTService,
+                                  IBaseService<PessoaFisica> pessoaFisicaService
+                                 ) : base(tokenJWTService)
     {
-        this.tokenJWTService = tokenJWTService;
         this.pessoaFisicaService = pessoaFisicaService;
     }
 
@@ -83,11 +81,8 @@ public class PessoaFisicaController : BaseController
         }
     }
 
-    [AllowAnonymous]
-    [HttpGet("Token")]
-    public IActionResult GetToken() => Ok(this.tokenJWTService.GerarToken());
 
-    [Authorize]
+
     [HttpGet]
 
     public IActionResult Get()
@@ -102,7 +97,7 @@ public class PessoaFisicaController : BaseController
         }
     }
 
-    [HttpGet("GetPersonById/{id}")]
+    [HttpGet("{id}")]
     public IActionResult Get(int id)
     {
         try
@@ -117,11 +112,5 @@ public class PessoaFisicaController : BaseController
         {
             return BadRequest(ex);
         }
-    }
-
-    [HttpGet("ping")]
-    public string Ping()
-    {
-        return  "A data eh:" + DateTime.Now.ToString();
     }
 }

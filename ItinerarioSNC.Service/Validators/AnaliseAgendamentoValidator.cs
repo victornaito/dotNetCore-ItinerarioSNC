@@ -16,7 +16,7 @@ namespace ItinerarioSNC.Service.Validators
                     });
 
             RuleFor(c => c.PessoaFisica)
-                .NotEmpty().WithMessage("Is necessary to inform the CPF.")
+                .NotEmpty().WithMessage("Cannot be Empty.")
                 .NotNull().WithMessage("Is necessary to inform the CPF.");
 
             RuleFor(c => c.DataCriacaoAgendamento)

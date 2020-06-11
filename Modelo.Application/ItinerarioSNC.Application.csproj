@@ -16,7 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
-    <PackageReference Include="Sample.AppItnerarioSNC.Generics.ApplicationCore" Version="1.0.1" />
+    <PackageReference Include="Sample.AppItnerarioSNC.Generics.ApplicationCore" Version="1.0.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.6.0" />
     <PackageReference Include="System.Runtime" Version="4.2.2.0" />
   </ItemGroup>

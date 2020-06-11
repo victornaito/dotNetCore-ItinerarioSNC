@@ -4,10 +4,10 @@ namespace ItinerarioSNC.Domain.Dtos
 {
     public class PessoaFisicaDto
     {
-        public int? CPF { get; private set; }
-        public string SocialName { get; private set; }
-        public string FullName { get; private set; }
-        public DateTime? Birthday { get; private set; }
-        public string Department { get; private set; }
+        public int? Cpf { get; set; }
+        public string SocialName { get; set; }
+        public string FullName { get; set; }
+        public DateTime? Birthday { get; set; }
+        public string Department { get; set; }
     }
 }

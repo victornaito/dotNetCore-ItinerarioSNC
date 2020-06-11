@@ -5,7 +5,7 @@ namespace ItinerarioSNC.Domain.Entities
 {
     public class AnaliseAgendamento : BaseEntity
     {
-        public AnaliseAgendamento()
+        protected AnaliseAgendamento()
         {
         }
 
@@ -15,6 +15,6 @@ namespace ItinerarioSNC.Domain.Entities
         }
 
         public DateTime DataCriacaoAgendamento { get; private set; }
-        public PessoaFisica PessoaFisica { get; private set; }
+        public virtual PessoaFisica PessoaFisica { get; private set; }
     }
 }
