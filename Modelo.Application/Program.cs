@@ -13,6 +13,6 @@ namespace Modelo.Application
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseUrls("http://localhost");
+                .UseUrls("http://localhost:8080");
     }
 }
