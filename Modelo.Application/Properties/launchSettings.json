@@ -19,14 +19,16 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Local"
       },
+      "nativeDebugging": true,
       "applicationUrl": "http://localhost:9000"
     },
     "Modelo.Application": {
       "commandName": "IISExpress",
       "launchUrl": "api/values",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Local"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
+      "sqlDebugging": true,
       "nativeDebugging": true,
       "applicationUrl": "http://localhost:9000"
     }
