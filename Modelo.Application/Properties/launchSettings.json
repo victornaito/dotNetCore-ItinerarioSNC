@@ -27,7 +27,7 @@
       "commandName": "IISExpress",
       "launchUrl": "api/values",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Local"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "sqlDebugging": true,
       "nativeDebugging": false,
