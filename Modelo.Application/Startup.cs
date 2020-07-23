@@ -1,7 +1,9 @@
 ﻿using ItinerarioSNC.Infra.CrossCutting.ExtensionMethods;
+using ItinerarioSNC.Infra.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,6 +28,20 @@ namespace Modelo.Application
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.Use(async (context, next) =>
+            {
+                await next.Invoke();
+
+                string method = context.Request.Method;
+            });
+
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<MySqlServerContext>();
+                context.Database.Migrate();
+            }
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -39,6 +55,7 @@ namespace Modelo.Application
                 app.UseHttpsRedirection();
                 app.UseCors("CorsPolicy");
                 app.UseMvc();
+                app.UseExceptionHandler("/");
             }
         }
     }

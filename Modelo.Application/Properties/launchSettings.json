@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost:9000",
+      "applicationUrl": "http://localhost:9001",
       "sslPort": 0
     },
     "iisExpress": {
@@ -19,6 +19,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Local"
       },
+      "sqlDebugging": true,
+      "nativeDebugging": true,
       "applicationUrl": "http://localhost:9000"
     },
     "Modelo.Application": {
@@ -27,8 +29,9 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Local"
       },
-      "nativeDebugging": true,
-      "applicationUrl": "http://localhost:9000"
+      "sqlDebugging": true,
+      "nativeDebugging": false,
+      "applicationUrl": "http://localhost:9001"
     }
   }
 }

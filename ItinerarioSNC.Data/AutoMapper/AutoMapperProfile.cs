@@ -12,7 +12,8 @@ namespace ItinerarioSNC.Infra.Data.AutoMapper
 
                 new MapperConfiguration(cfg =>
                 {
-                    cfg.CreateMap<PessoaFisica, PessoaFisicaDto>();
+                    cfg.CreateMap<PessoaFisicaDto, PessoaFisica>();
+                    cfg.CreateMap<AnaliseAgendamentoDto, AnaliseAgendamento>();
                 });
 
         public AutoMapperProfile(IMapper iMapper)
@@ -23,7 +24,8 @@ namespace ItinerarioSNC.Infra.Data.AutoMapper
 
         public static BaseEntity Map<BaseDto, BaseEntity>(BaseDto source)
         {
-            return Config.CreateMapper().Map<BaseDto, BaseEntity>(source);
+            dynamic mapper = Config.CreateMapper().Map<BaseDto, BaseEntity>(source);
+            return mapper;
         }
     }
 }

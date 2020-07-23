@@ -11,11 +11,11 @@ namespace ItinerarioSNC.Service.Validators
         public PessoaFisicaValidator()
         {
             RuleFor(c => c)
-                    .NotNull()
-                    .OnAnyFailure(x =>
-                    {
-                        throw new ArgumentNullException("Can't found the object.");
-                    });
+                .NotNull()
+                .OnAnyFailure(x =>
+                {
+                    throw new ArgumentNullException("Can't found the object.");
+                });
 
             RuleFor(c => c.CPF)
                 .NotEmpty().WithMessage("Is necessary to inform the CPF.")

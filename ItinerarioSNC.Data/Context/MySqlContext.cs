@@ -15,6 +15,7 @@ namespace ItinerarioSNC.Infra.Data.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<PessoaFisica>(new PessoaFisicaMapping().Configure);
+            modelBuilder.Entity<AnaliseAgendamento>(new AnaliseAgendamentoMapping().Configure);
         }
 
     }
